@@ -1,0 +1,32 @@
+{
+  "name": "opq",
+  "version": "1.0.0",
+  "description": "Node.js client library for constructing OpenSearch query",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictoriaBros/opq-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VictoriaBros/opq-js/issues"
+  },
+  "homepage": "https://github.com/VictoriaBros/opq-js#readme",
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "@opensearch-project/opensearch": "^2.4.0",
+    "debug": "^4.3.4"
+  }
+}
