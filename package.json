@@ -18,8 +18,8 @@
     "type": "git",
     "url": "git+https://github.com/VictoriaBros/opq-js.git"
   },
-  "author": "Victoria Bros. Technology <technology@victoriabros.com>",
-  "license": "ISC",
+  "author": "Victoria Bros. <technology@victoriabros.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/VictoriaBros/opq-js/issues"
   },

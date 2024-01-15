@@ -7,7 +7,10 @@ const filterQ = pipeline(
     query.withMust(),
     query.withBool(),
     query.withFilter(),
+    query.withPrettyPrint(),
 );
+
+filterQ();
 
 /*
 execute:
@@ -32,4 +35,3 @@ output:
 }
 */
 
-console.log(filterQ());

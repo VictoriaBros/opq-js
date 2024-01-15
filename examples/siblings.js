@@ -10,7 +10,10 @@ const siblingsQ = pipeline(
     query.withMust(),
     query.withBool(),
     query.withFilter(),
+    query.withPrettyPrint(),
 );
+
+siblingsQ();
 
 /*
 execute:
@@ -36,4 +39,3 @@ output:
 }
 */
 
-console.log(siblingsQ());

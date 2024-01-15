@@ -6,7 +6,11 @@ const pipelineQ = pipeline(
     query.match('fruit', 'orange'),
     query.withMust(),
     query.withBool(),
+    query.withQuery(),
+    query.withPrettyPrint(),
 );
+
+pipelineQ();
 
 /*
 execute:
@@ -15,18 +19,18 @@ pipelineQ()
 
 output:
 {
-    bool: {
-        must: [
-            {
-                match: {
-                    fruit: {
-                        query: 'orange'
+    query: {
+        bool: {
+            must: [
+                {
+                    match: {
+                        fruit: {
+                            query: 'orange'
+                        }
                     }
                 }
-            }
-        ]
+            ]
+        }
     }
 }
 */
-
-console.log(pipelineQ());
