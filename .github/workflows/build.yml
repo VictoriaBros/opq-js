@@ -1,4 +1,4 @@
-name: publish opq-js to npmjs
+name: build opq-js
 
 on:
   push:
