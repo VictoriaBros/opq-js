@@ -1,7 +1,8 @@
-# opq-js
-Node.js client library for constructing OpenSearch query
+# opq
 
-- [opq.js](#opqjs)
+Node.js client library for constructing OpenSearch query.
+
+- [opq](#opq)
   - [Installation](#installation)
   - [Quick Start](#quick-start)
   - [Query](#query)
@@ -31,12 +32,12 @@ Node.js client library for constructing OpenSearch query
 ## Installation
 
 ```sh
-npm insall opq
+npm insall @victoriabros/opq
 ```
 
 ## Quick Start
 
-Constructing queries for OpenSearch index has never been this easy. Opq provides queries that can be used to construct simple and complex JSON query for OpenSearch.
+Constructing queries for OpenSearch index has never been this easy. opq provides queries that can be used to construct simple and complex JSON query for OpenSearch.
 
 See example: [match.js](./examples/match.js)
 
@@ -55,8 +56,7 @@ $ node match.js
 { query: { match: { customer_first_name: [Object] } } }
 ```
 
-Here's a more complete query based on [Paginate results documentation](https://opensearch.org/docs/latest/search-plugins/searching-data/paginate/#the-search_after-parameter) from OpenSeach using several query from opq and prettyprinting the output.
-
+Here's a more complete query based on [Paginate results documentation](https://opensearch.org/docs/latest/search-plugins/searching-data/paginate/#the-search_after-parameter) from OpenSeach using several query from opq and pretty printing the output.
 
 See example: [paginate.js](./examples/paginate.js)
 

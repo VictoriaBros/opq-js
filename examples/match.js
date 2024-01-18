@@ -3,7 +3,9 @@
 const { pipeline, query } = require('../');
 
 const pipelineQ = pipeline(
-    query.match('customer_first_name', 'Sonya'),
+    query.match('customer_first_name', 'Sonya', {
+        'prefix_length': 2,
+    }),
     query.withQuery(),
     query.withPrettyPrint(),
 );
