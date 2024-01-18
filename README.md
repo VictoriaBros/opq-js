@@ -42,7 +42,7 @@ Constructing queries for OpenSearch index has never been this easy. opq provides
 See example: [match.js](./examples/match.js)
 
 ```js
-const { pipeline, query } = require('../');
+const { pipeline, query } = require('@victoriabros/opq');
 const pipelineQ = pipeline(
     query.match('customer_first_name', 'Sonya'),
     query.withQuery(),
@@ -61,7 +61,7 @@ Here's a more complete query based on [Paginate results documentation](https://o
 See example: [paginate.js](./examples/paginate.js)
 
 ```js
-const { pipeline, query } = require('../');
+const { pipeline, query } = require('@victoriabros/opq');
 const paginate = pipeline(
     query.match('play_name', 'Hamlet'),
     query.withPaginate(0, 3),
