@@ -2,7 +2,7 @@
 
 const { pipeline, query } = require('../');
 
-const paginate = pipeline(
+const paginateQ = pipeline(
     query.match('play_name', 'Hamlet'),
     query.withPaginate(0, 3),
     query.withSort([
@@ -17,11 +17,11 @@ const paginate = pipeline(
     query.withPrettyPrint(),
 );
 
-paginate();
+paginateQ();
 
 /*
 execute:
-paginate()
+paginateQ()
 
 
 output:

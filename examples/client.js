@@ -2,7 +2,7 @@
 
 const { pipeline, query, newClient } = require('../');
 
-const opqClient = newClient({
+const client = newClient({
     host: 'localhost:9200',
     username: 'admin',
     password: 'admin',
@@ -19,7 +19,7 @@ const pipelineQ = pipeline(
     query.withPrettyPrint(),
 );
 
-opqClient.search('fruits_index', pipelineQ(), (err, record) => {
+client.search('fruits_index', pipelineQ(), (err, record) => {
     if (err) {
         // handle OpenSearch or ERR_NO_BODY err
     }
