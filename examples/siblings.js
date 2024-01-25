@@ -4,7 +4,7 @@ const { pipeline, query } = require('../');
 
 const siblingsQ = pipeline(
     query.withSiblings([
-        query.match('fruit', 'orange'),
+        query.match('fruit_name', 'Orange'),
         query.withConstant('minimum_should_match', 1),
     ]),
     query.withMust(),
@@ -28,8 +28,8 @@ output:
                 {
                     minimum_should_match: 1,
                     match: {
-                        fruit: {
-                            query: 'orange'
+                        fruit_name: {
+                            query: 'Orange'
                         }
                     }
                 }

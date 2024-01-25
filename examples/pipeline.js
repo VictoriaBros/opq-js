@@ -3,7 +3,7 @@
 const { pipeline, query } = require('../');
 
 const pipelineQ = pipeline(
-    query.match('fruit', 'orange'),
+    query.match('fruit_name', 'Orange'),
     query.withMust(),
     query.withBool(),
     query.withQuery(),
@@ -24,8 +24,8 @@ output:
             must: [
                 {
                     match: {
-                        fruit: {
-                            query: 'orange'
+                        fruit_name: {
+                            query: 'Orange'
                         }
                     }
                 }
