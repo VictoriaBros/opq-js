@@ -62,7 +62,7 @@ See example: [paginate.js](./examples/paginate.js)
 
 ```js
 const { pipeline, query } = require('@victoriabros/opq');
-const paginate = pipeline(
+const paginateQ = pipeline(
     query.match('play_name', 'Hamlet'),
     query.withPaginate(0, 3),
     query.withSort([
@@ -77,7 +77,7 @@ const paginate = pipeline(
     query.withPrettyPrint(),
 );
 
-paginate();
+paginateQ();
 
 ```
 
