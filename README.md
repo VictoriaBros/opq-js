@@ -7,8 +7,10 @@ Node.js client library for constructing OpenSearch query.
   - [Quick Start](#quick-start)
   - [Query](#query)
     - [matchPrefix](#match-prefix)
+    - [matchBool](#match-bool)
     - [match](#match)
     - [multimatch](#multimatch)
+    - [matchAll](#match-all)
     - [term](#term)
     - [terms](#terms)
     - [withShould](#with-should)
@@ -16,7 +18,6 @@ Node.js client library for constructing OpenSearch query.
     - [withMustNot](#with-must-not)
     - [withBool](#with-bool)
     - [withQuery](#with-query)
-    - [withSiblings](#with-siblings)
     - [withFilter](#with-filter)
     - [withPaginate](#with-paginate)
     - [withHighlight](#with-highlight)
@@ -24,6 +25,7 @@ Node.js client library for constructing OpenSearch query.
     - [withSource](#with-source)
     - [withConstant](#with-constant)
     - [withArray](#with-array)
+    - [withSiblings](#with-siblings)
     - [withPrettyPrint](#with-prettyprint)
   - [Pipeline](#pipeline)
   - [Client](#client)
@@ -106,11 +108,90 @@ $ node paginate.js
 ```
 
 More snippets can be found in the [examples directory](./examples)
+
 ## Query
 
+Opq exports `query.*` which has several functions that can be used within `pipeline`.
+
+```js
+const { query } = require('@victoriabros/opq');
+```
+
 ### matchPrefix
+
+### matchBool
+
 ### match
+
+See example: [match.js](./examples/match.js)
+
 ### multimatch
+
+### matchAll
+
+### term
+
+See example: [array.js#L9](./examples/array.js#L9)
+
+### terms
+
+See example: [array.js#L10](./examples/array.js#L10)
+
+### withShould
+
+See example: [match.js#L9](./examples/match.js#L9)
+
+### withMust
+
+See example: [siblings.js#L10](./examples/siblings.js#L10)
+
+### withMustNot
+
+See example: [array.js#L19](./examples/array.js#L19)
+
+### withBool
+
+See example: [siblings.js#L11](./examples/siblings.js#L11)
+
+### withQuery
+
+See example: [array.js#L23](./examples/array.js#L23)
+
+### withFilter
+
+See example: [filter.js](./examples/filter.js)
+
+### withPaginate
+
+See example: [paginate.js](./examples/paginate.js)
+
+### withHighlight
+
+See example: [highlight.js](./examples/highlight.js)
+
+### withSort
+
+See example: [paginate.js#L8](./examples/paginate.js#L8)
+
+### withSource
+
+See example: [array.js#L24](./examples/array.js#L24)
+
+### withConstant
+
+See example: [siblings.js#L8](./examples/siblings.js#L8)
+
+### withArray
+
+See example: [array.js](./examples/array.js)
+
+### withSiblings
+
+See example: [siblings.js](./examples/siblings.js)
+
+### withPrettyPrint
+
+See example: [paginate.js#L13](./examples/paginate.js#L13)
 
 ## Pipeline
 ## Client
