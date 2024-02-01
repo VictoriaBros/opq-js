@@ -191,7 +191,7 @@ See example: [siblings.js](./examples/siblings.js)
 
 ### withPrettyPrint
 
-See example: [paginate.js#L13](./examples/paginate.js#L13)
+See example: [paginate.js#L17](./examples/paginate.js#L17)
 
 ## Pipeline
 ## Client
