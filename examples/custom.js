@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { pipeline, query, newClient } = require('../');
+const { pipeline, query } = require('../');
 
 const queryString = (text) => {
     return () => ({

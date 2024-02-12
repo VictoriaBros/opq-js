@@ -169,29 +169,43 @@ See example: [filter.js](./examples/filter.js)
 
 ### withPaginate
 
+This allows including the `from` and `size` fields. The `from` field is computed based on `offset` and `limit` provided.
+
 See example: [paginate.js](./examples/paginate.js)
 
 ### withHighlight
+
+This allows including the `highlight` field with option to replace the `preTags`, `postTags` and additional options.
 
 See example: [highlight.js](./examples/highlight.js)
 
 ### withSort
 
+This allows including the `sort` field with option to add flexible attributes.
+
 See example: [paginate.js#L8](./examples/paginate.js#L8)
 
 ### withSource
+
+This allows including the `_source` field.
 
 See example: [array.js#L24](./examples/array.js#L24)
 
 ### withConstant
 
+This allows providing constant value with custom key.
+
 See example: [siblings.js#L8](./examples/siblings.js#L8)
 
 ### withArray
 
+This allows placing sub-queries within an array.
+
 See example: [array.js](./examples/array.js)
 
 ### withSiblings
+
+This allows placing adjacent queries or sub-queries.
 
 See example: [siblings.js](./examples/siblings.js)
 
