@@ -119,13 +119,19 @@ const { query } = require('@victoriabros/opq');
 
 ### matchPrefix
 
+See example: [matchprefix.js](./examples/matchprefix.js)
+
 ### matchBool
+
+See example: [matchbool.js](./examples/matchbool.js)
 
 ### match
 
 See example: [match.js](./examples/match.js)
 
 ### multimatch
+
+See example: [multimatch.js](./examples/multimatch.js)
 
 ### matchAll
 
@@ -191,7 +197,102 @@ See example: [siblings.js](./examples/siblings.js)
 
 ### withPrettyPrint
 
+By default, prettyprint outputs composed query to console. You may change the default logger.
+
 See example: [paginate.js#L17](./examples/paginate.js#L17)
 
+```js
+const { query } = require('@victoriabros/opq');
+const winston = require('winston');
+const logger = winston.createLogger({
+    transports: [
+        new winston.transports.Console({ level: 'warn' }),
+        new winston.transports.File({ filename: 'combined.log' })
+    ],
+});
+
+query.withPrettyPrint({}, logger.info);
+```
+
+
 ## Pipeline
+
+You can execute custom queries in addition to the built-in queries using `pipeline`.
+
+See example: [custom.js](./examples/custom.js)
+
+```js
+const { pipeline } = require('@victoriabros/opq');
+
+const customFunction = (text) => {
+    return (baseQuery) => ({
+        ...baseQuery,
+        'custom_attribute': text
+    });
+};
+
+const pipelineQ = pipeline(
+    query.match('fruit_name', 'Orange'),
+    query.withQuery(),
+    customFunction('custom_value'),
+    query.withPrettyPrint(),
+);
+
+pipelineQ();
+```
+
+```sh
+$ node sample-custom.js
+
+{
+    "query": {
+        "match": {
+            "fruit_name": {
+                "query": "Orange",
+                "operator": "OR",
+                "max_expansions": 30,
+                "boost": 1
+            }
+        }
+    },
+    "custom_attribute": "custom_value"
+}
+```
+
+
 ## Client
+
+Connection to OpenSearch can be initiated using `newClient`. It requires at minimum `host`, `username` and `password` but you can provide additional configuration to fine-tune the performance such as circuit breaking.
+
+See example: [client.js](./examples/client.js)
+
+```js
+const { newClient } = require('@victoriabros/opq');
+const client = newClient({
+    // required
+    host: 'localhost:9200',
+    username: 'admin',
+    password: 'admin',
+
+    // optional
+    enableLongNumeralSupport: true,
+    memoryCircuitBreakerEnabled: true,
+    memoryCircuitBreakerMaxPercent: 0.8,
+});
+```
+
+You can validate configuration credentials using `createCredentials`.
+
+```js
+const { createCredentials } = require('@victoriabros/opq');
+
+console.log(createCredentials({
+    // required
+    host: 'localhost:9200',
+    username: 'admin',
+    password: 'admin',
+
+    // optional
+    protocol: 'http' // defaults to https
+}));
+```
