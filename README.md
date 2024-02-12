@@ -119,51 +119,77 @@ const { query } = require('@victoriabros/opq');
 
 ### matchPrefix
 
+This allows including the `match_phrase_prefix` field which searches for documents matching the provided phrase.
+
 See example: [matchprefix.js](./examples/matchprefix.js)
 
 ### matchBool
+
+This allows including the `match_bool_prefix` field which analyzes the provided search string and creates a Boolean query.
 
 See example: [matchbool.js](./examples/matchbool.js)
 
 ### match
 
+This allows including the `match` field to perform full-text search.
+
 See example: [match.js](./examples/match.js)
 
 ### multimatch
+
+This allows including the `multimatch` field to search multiple fields in the index. By default, `fields` will be `*` which searches the fields specified in the index query.
 
 See example: [multimatch.js](./examples/multimatch.js)
 
 ### matchAll
 
+This allows including the `match_all` field that queries the entire index.
+
 ### term
+
+This allows including the `term` field.
 
 See example: [array.js#L9](./examples/array.js#L9)
 
 ### terms
 
+This allows including the `terms` field.
+
 See example: [array.js#L10](./examples/array.js#L10)
 
 ### withShould
+
+This allows include the `should` field which is equivalent to logical `or` operator.
 
 See example: [match.js#L9](./examples/match.js#L9)
 
 ### withMust
 
+This allows include the `must` field which is equivalent to logical `and` operator.
+
 See example: [siblings.js#L10](./examples/siblings.js#L10)
 
 ### withMustNot
+
+This allows include the `must_not` field which is equivalent to logical `not` operator.
 
 See example: [array.js#L19](./examples/array.js#L19)
 
 ### withBool
 
+This allows including the `bool` field that can be combined with `withMustNot`, `withMust`, `withShould` and `withFilter`.
+
 See example: [siblings.js#L11](./examples/siblings.js#L11)
 
 ### withQuery
 
+This allows including the `query` field.
+
 See example: [array.js#L23](./examples/array.js#L23)
 
 ### withFilter
+
+This allows including the `filter` field.
 
 See example: [filter.js](./examples/filter.js)
 
@@ -175,13 +201,27 @@ See example: [paginate.js](./examples/paginate.js)
 
 ### withHighlight
 
-This allows including the `highlight` field with option to replace the `preTags`, `postTags` and additional options.
+This allows including the `highlight` field with option to replace the `preTags`, `postTags` and [additional highlighting options](https://opensearch.org/docs/latest/search-plugins/searching-data/highlight/#highlighting-options).
 
 See example: [highlight.js](./examples/highlight.js)
 
+```js
+const { query } = require('@victoriabros/opq');
+
+query.withHighlight([
+    { 'email': {} },
+    { 'username': {} }
+], {
+    'pre_tags': ['<em>'],
+    'post_tags': ['</em>'],
+    'order': 'score',
+    'number_of_fragments': 0,
+});
+```
+
 ### withSort
 
-This allows including the `sort` field with option to add flexible attributes.
+This allows including the `sort` field with option to add [flexible attributes](https://opensearch.org/docs/latest/search-plugins/searching-data/sort/).
 
 See example: [paginate.js#L8](./examples/paginate.js#L8)
 
