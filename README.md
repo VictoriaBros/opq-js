@@ -6,27 +6,27 @@ Node.js client library for constructing OpenSearch query.
   - [Installation](#installation)
   - [Quick Start](#quick-start)
   - [Query](#query)
-    - [matchPrefix](#match-prefix)
-    - [matchBool](#match-bool)
+    - [matchPrefix](#matchprefix)
+    - [matchBool](#matchbool)
     - [match](#match)
     - [multimatch](#multimatch)
-    - [matchAll](#match-all)
+    - [matchAll](#matchall)
     - [term](#term)
     - [terms](#terms)
-    - [withShould](#with-should)
-    - [withMust](#with-must)
-    - [withMustNot](#with-must-not)
-    - [withBool](#with-bool)
-    - [withQuery](#with-query)
-    - [withFilter](#with-filter)
-    - [withPaginate](#with-paginate)
-    - [withHighlight](#with-highlight)
-    - [withSort](#with-sort)
-    - [withSource](#with-source)
-    - [withConstant](#with-constant)
-    - [withArray](#with-array)
-    - [withSiblings](#with-siblings)
-    - [withPrettyPrint](#with-prettyprint)
+    - [withShould](#withshould)
+    - [withMust](#withmust)
+    - [withMustNot](#withmustnot)
+    - [withBool](#withbool)
+    - [withQuery](#withquery)
+    - [withFilter](#withfilter)
+    - [withPaginate](#withpaginate)
+    - [withHighlight](#withhighlight)
+    - [withSort](#withsort)
+    - [withSource](#withsource)
+    - [withConstant](#withconstant)
+    - [withArray](#witharray)
+    - [withSiblings](#withsiblings)
+    - [withPrettyPrint](#withprettyprint)
   - [Pipeline](#pipeline)
   - [Client](#client)
 
@@ -39,7 +39,7 @@ npm insall @victoriabros/opq
 
 ## Quick Start
 
-Constructing queries for OpenSearch index has never been this easy. opq provides queries that can be used to construct simple and complex JSON query for OpenSearch.
+Constructing queries for OpenSearch index has never been this simplified. opq provides queries that can be used to construct simple, complex and custom JSON queries for OpenSearch.
 
 See example: [match.js](./examples/match.js)
 
