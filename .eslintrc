@@ -1,0 +1,27 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 10,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "semi": "error",
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "quotes": ["error", "single"],
+        "curly": "error",
+        "comma-dangle": ["error", "only-multiline"]
+    },
+    "globals": {
+        "module": true,
+        "require": true,
+        "exports": true,
+        "console": true,
+        "describe": true,
+        "test": true,
+        "expect": true,
+        "jest": true
+    }
+}
