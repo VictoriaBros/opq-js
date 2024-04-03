@@ -27,6 +27,7 @@ Node.js client library for constructing OpenSearch query.
     - [withArray](#witharray)
     - [withSiblings](#withsiblings)
     - [withPrettyPrint](#withprettyprint)
+    - [withScriptScore](#withscriptscore)
   - [Pipeline](#pipeline)
   - [Client](#client)
 
@@ -267,6 +268,8 @@ const logger = winston.createLogger({
 
 query.withPrettyPrint({}, logger.info);
 ```
+
+### withScriptScore
 
 
 ## Pipeline
