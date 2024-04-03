@@ -1,5 +1,8 @@
 # opq
 
+[![build](https://github.com/VictoriaBros/opq-js/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/VictoriaBros/opq-js/actions/workflows/build.yml)
+[![install size](https://packagephobia.com/badge?p=@victoriabros/opq)](https://packagephobia.com/result?p=@victoriabros/opq)
+
 Node.js client library for constructing OpenSearch query.
 
 - [opq](#opq)
