@@ -29,12 +29,13 @@ Node.js client library for constructing OpenSearch query.
     - [withPrettyPrint](#withprettyprint)
   - [Pipeline](#pipeline)
   - [Client](#client)
+  - [Debugging](#debugging)
 
 
 ## Installation
 
 ```sh
-npm insall @victoriabros/opq
+npm install @victoriabros/opq
 ```
 
 ## Quick Start
@@ -349,4 +350,12 @@ console.log(createCredentials({
     // optional
     protocol: 'http' // defaults to https
 }));
+```
+
+## Debugging
+
+[debug](https://www.npmjs.com/package/debug) a tiny JavaScript debugging utility tool is used for client error and info output. The debug output can be toggled by prefix node command with `DEBUG=*` for the whole module or `DEBUG=opensearch:opq` for opq only output.
+
+```sh
+DEBUG=* node examples/client.js
 ```
