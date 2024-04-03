@@ -281,7 +281,7 @@ function of a document for a query on opensearch, by adding the query and the sc
 const { query } = require('@victoriabros/opq');
 
 query.withScriptScore(
-    query.match('author', 'Dave')(),
+    query.withConstant('author', 'Dave')(),
     {
         source: `
             _score * doc[params.field].value
@@ -291,6 +291,22 @@ query.withScriptScore(
         }
     }
 );
+
+```
+```sh
+
+{
+    'script_score': {
+        'query': {
+            'author': 'Dave'
+        },
+        'script': {
+            lang: 'painless',
+            source: '\n         _score * doc[params.field].value\n         ',
+            params: { 'field': 'multiplier' }
+        }
+    }
+}
 
 ```
 
