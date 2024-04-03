@@ -274,6 +274,26 @@ query.withPrettyPrint({}, logger.info);
 
 ### withScriptScore
 
+This allows including the `script_score` which helps to change the scoring 
+function of a document for a query on opensearch, by adding the query and the score; [reference](https://opensearch.org/docs/latest/query-dsl/specialized/script-score/)
+
+```js
+const { query } = require('@victoriabros/opq');
+
+query.withScriptScore(
+    query.match('author', 'Dave')(),
+    {
+        source: `
+            _score * doc[params.field].value
+        `,
+        params: {
+            'field': 'multiplier'
+        }
+    }
+);
+
+```
+
 
 ## Pipeline
 
