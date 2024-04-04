@@ -13,6 +13,8 @@ Node.js client library for constructing OpenSearch query.
     - [matchAll](#matchall)
     - [term](#term)
     - [terms](#terms)
+    - [exists](#exists)
+    - [range](#range)
     - [withShould](#withshould)
     - [withMust](#withmust)
     - [withMustNot](#withmustnot)
@@ -156,6 +158,10 @@ See example: [array.js#L9](./examples/array.js#L9)
 This allows including the `terms` field.
 
 See example: [array.js#L10](./examples/array.js#L10)
+
+### exists
+
+### range
 
 ### withShould
 
