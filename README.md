@@ -1,5 +1,8 @@
 # opq
 
+[![build](https://github.com/VictoriaBros/opq-js/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/VictoriaBros/opq-js/actions/workflows/build.yml)
+[![install size](https://packagephobia.com/badge?p=@victoriabros/opq)](https://packagephobia.com/result?p=@victoriabros/opq)
+
 Node.js client library for constructing OpenSearch query.
 
 - [opq](#opq)
@@ -27,6 +30,7 @@ Node.js client library for constructing OpenSearch query.
     - [withArray](#witharray)
     - [withSiblings](#withsiblings)
     - [withPrettyPrint](#withprettyprint)
+    - [withScriptScore](#withscriptscore)
   - [Pipeline](#pipeline)
   - [Client](#client)
   - [Debugging](#debugging)
@@ -267,6 +271,47 @@ const logger = winston.createLogger({
 });
 
 query.withPrettyPrint({}, logger.info);
+```
+
+### withScriptScore
+
+This allows including the `script_score` to change the scoring function of queried documents.
+
+```js
+const { query } = require('@victoriabros/opq');
+
+query.withScriptScore(
+    query.match('author', 'Dave')(),
+    {
+        source: `
+            _score * doc[params.field].value
+        `,
+        params: {
+            'field': 'multiplier'
+        }
+    }
+);
+
+```
+
+```sh
+{
+    'script_score': {
+        'query': {
+            'match': {
+                'author': {
+                    'query': 'Dave',
+                    . . .
+                }
+            }
+        },
+        'script': {
+            lang: 'painless',
+            source: '\n         _score * doc[params.field].value\n         ',
+            params: { 'field': 'multiplier' }
+        }
+    }
+}
 ```
 
 
