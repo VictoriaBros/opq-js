@@ -38,7 +38,9 @@
     "search",
     "match",
     "multimatch",
-    "elasticsearch"
+    "elasticsearch",
+    "opq",
+    "opq-js"
   ],
   "devDependencies": {
     "eslint": "^8.56.0",

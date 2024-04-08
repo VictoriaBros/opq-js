@@ -300,16 +300,42 @@ describe('query', () => {
     });
 
     test.concurrent('testing withPaginate', () => {
-        const withPaginate = pipeline(
+        expect(pipeline(
             query.withPaginate(0, 3),
             query.withQuery(),
             query.withPrettyPrint(),
-        );
-
-        expect(withPaginate()).toEqual(
+        )()).toEqual(
             {
                 query: {
-                    from: -3,
+                    from: 0,
+                    size: 3,
+                },
+
+            }
+        );
+
+        expect(pipeline(
+            query.withPaginate(1, 3),
+            query.withQuery(),
+            query.withPrettyPrint(),
+        )()).toEqual(
+            {
+                query: {
+                    from: 0,
+                    size: 3,
+                },
+
+            }
+        );
+
+        expect(pipeline(
+            query.withPaginate(-1, 3),
+            query.withQuery(),
+            query.withPrettyPrint(),
+        )()).toEqual(
+            {
+                query: {
+                    from: 0,
                     size: 3,
                 },
 
@@ -340,7 +366,6 @@ describe('query', () => {
     });
 
     test.concurrent('testing withSort', () => {
-        // default
         const withSort = query.withSort();
 
         expect(withSort()).toEqual({
@@ -363,8 +388,6 @@ describe('query', () => {
             }
         );
     });
-
-    
 
     test.concurrent('testing withConstant', () => {
         const withConstant = query.withConstant('author', 'shakespear');
@@ -389,8 +412,43 @@ describe('query', () => {
     });
 
     test.concurrent('test withPrettyPrint', () => {
-        // default
         const withPrettyPrint = query.withPrettyPrint();
         expect(withPrettyPrint()).toEqual(undefined);
+    });
+
+    test.concurrent('test withScriptScore', () => {
+        const withScriptScore = query.withScriptScore(
+            query.match('author', 'Dave')(),
+            {
+                source: `
+                    _score * doc[params.field].value
+                `,
+                params: {
+                    'field': 'multiplier'
+                }
+            }
+        );
+
+        expect(withScriptScore()).toEqual(
+            {
+                'script_score': {
+                    'query': {
+                        'match': {
+                            'author': {
+                                'query': 'Dave',
+                                'boost': 1,
+                                'max_expansions': 30,
+                                'operator': 'OR'
+                            }
+                        }
+                    },
+                    'script': {
+                        lang: 'painless',
+                        source: '\n                    _score * doc[params.field].value\n                ',
+                        params: { 'field': 'multiplier' }
+                    }
+                }
+            }
+        );
     });
 });
