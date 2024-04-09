@@ -179,8 +179,7 @@ const withExists = query.exists({
 
 ### range
 
-This allows to search for a range of given values in a field including integer values,
-dates e.t.c
+This allows to search for a range of given values in a field.
 
 ```js
 const { query } = require('@victoriabros/opq');

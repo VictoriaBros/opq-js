@@ -1,6 +1,6 @@
 {
   "name": "@victoriabros/opq",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Node.js client library for constructing OpenSearch query",
   "main": "index.js",
   "directories": {
