@@ -303,7 +303,6 @@ describe('query', () => {
         expect(pipeline(
             query.withPaginate(0, 3),
             query.withQuery(),
-            query.withPrettyPrint(),
         )()).toEqual(
             {
                 query: {
@@ -317,7 +316,6 @@ describe('query', () => {
         expect(pipeline(
             query.withPaginate(1, 3),
             query.withQuery(),
-            query.withPrettyPrint(),
         )()).toEqual(
             {
                 query: {
@@ -331,7 +329,6 @@ describe('query', () => {
         expect(pipeline(
             query.withPaginate(-1, 3),
             query.withQuery(),
-            query.withPrettyPrint(),
         )()).toEqual(
             {
                 query: {
@@ -411,12 +408,33 @@ describe('query', () => {
         );
     });
 
-    test.concurrent('test withPrettyPrint', () => {
-        const withPrettyPrint = query.withPrettyPrint();
-        expect(withPrettyPrint()).toEqual(undefined);
+    test.concurrent('testing withPrettyPrint', () => {
+        const mockFn = jest.fn();
+        const withPrettyPrint = query.withPrettyPrint({}, mockFn);
+
+        expect(withPrettyPrint(query.match('author', 'Dave')())).toEqual({
+            'match': {
+                'author': {
+                    'query': 'Dave',
+                    'boost': 1,
+                    'max_expansions': 30,
+                    'operator': 'OR'
+                }
+            }
+        });
+        expect(mockFn.mock.calls).toEqual([[JSON.stringify({
+            'match': {
+                'author': {
+                    'query': 'Dave',
+                    'operator': 'OR',
+                    'max_expansions': 30,
+                    'boost': 1,
+                }
+            }
+        })]]);
     });
 
-    test.concurrent('test withScriptScore', () => {
+    test.concurrent('testing withScriptScore', () => {
         const withScriptScore = query.withScriptScore(
             query.match('author', 'Dave')(),
             {
@@ -446,6 +464,39 @@ describe('query', () => {
                         lang: 'painless',
                         source: '\n                    _score * doc[params.field].value\n                ',
                         params: { 'field': 'multiplier' }
+                    }
+                }
+            }
+        );
+    });
+
+    test.concurrent('testing exists', () => {
+        const withExists = query.exists({
+            'name': 'created_at',
+        });
+
+        expect(withExists()).toEqual(
+            {
+                'exists': {
+                    'field': 'created_at'
+                }
+            }
+        );
+    });
+
+    test.concurrent('testing range', () => {
+        const withRange = query.range('created_at', {
+            'gte': '2023-04-01',
+            'lte': '2024-04-08'
+        });
+
+        expect(withRange()).toEqual(
+            {
+                'range': {
+                    'created_at': {
+                        'boost': 1,
+                        'gte': '2023-04-01',
+                        'lte': '2024-04-08'
                     }
                 }
             }

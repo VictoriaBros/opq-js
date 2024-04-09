@@ -16,6 +16,8 @@ Node.js client library for constructing OpenSearch query.
     - [matchAll](#matchall)
     - [term](#term)
     - [terms](#terms)
+    - [exists](#exists)
+    - [range](#range)
     - [withShould](#withshould)
     - [withMust](#withmust)
     - [withMustNot](#withmustnot)
@@ -161,6 +163,33 @@ See example: [array.js#L9](./examples/array.js#L9)
 This allows including the `terms` field.
 
 See example: [array.js#L10](./examples/array.js#L10)
+
+### exists
+
+checks if a field with a name exists.
+
+```js
+const { query } = require('@victoriabros/opq');
+
+const withExists = query.exists({
+    'name': 'created_at',
+});
+
+```
+
+### range
+
+This allows to search for a range of given values in a field including integer values,
+dates e.t.c
+
+```js
+const { query } = require('@victoriabros/opq');
+
+const withRange = query.range('created_at', {
+    'gte': '2023-04-01',
+    'lte': '2024-04-08'
+});
+```
 
 ### withShould
 
