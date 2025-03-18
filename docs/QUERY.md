@@ -33,25 +33,25 @@ See example: [multimatch.js](../examples/multimatch.js)
 
 This allows including the `match_phrase` field which searches for documents matching the exact phrase in a specified order.
 
-See example: [matchprefix.js](../examples/matchphrase.js)
+See example: [matchphrase.js](../examples/matchphrase.js)
 
 #### matchPhrasePrefix
 
 This allows including the `match_phrase_prefix` field which searches for documents matching the provided phrase.
 
-See example: [matchprefix.js](../examples/matchphraseprefix.js)
+See example: [matchphraseprefix.js](../examples/matchphraseprefix.js)
 
 #### matchBoolPrefix
 
 This allows including the `match_bool_prefix` field which analyzes the provided search string and creates a Boolean query.
 
-See example: [matchbool.js](../examples/matchboolprefix.js)
+See example: [matchboolprefix.js](../examples/matchboolprefix.js)
 
 #### queryString
 
 This allows including the `query_string` field which searches for documents based on the query string syntax. It provides for creating powerful yet concise queries that can incorporate wildcards and search multiple fields.
 
-See example: [matchbool.js](../examples/querystring.js)
+See example: [querystring.js](../examples/querystring.js)
 
 
 ### Term Query
