@@ -5,11 +5,14 @@
 // https://opensearch.org/docs/latest/search-plugins/searching-data/autocomplete/
 const { pipeline } = require('./lib/pipeline');
 const query = require('./lib/query');
+const { options } = require('./lib/options');
 const { newClient, createCredentials } = require('./lib/client');
 
 exports = module.exports = pipeline;
 
 exports.pipeline = pipeline;
-exports.query = query;
+exports.query = { ...query, ...options };
+exports.queryDSL = query;
+exports.options = options;
 exports.newClient = newClient;
 exports.createCredentials = createCredentials;
