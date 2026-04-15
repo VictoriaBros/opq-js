@@ -1,6 +1,6 @@
 {
   "name": "@victoriabros/opq",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "description": "Node.js client library for constructing OpenSearch query",
   "main": "index.js",
   "directories": {
@@ -25,10 +25,10 @@
   },
   "homepage": "https://github.com/VictoriaBros/opq-js#readme",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "dependencies": {
-    "@opensearch-project/opensearch": "^2.13.0",
+    "@opensearch-project/opensearch": "^3.5.1",
     "debug": "^4.4.3"
   },
   "keywords": [
@@ -43,10 +43,10 @@
     "opq-js"
   ],
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.0.0",
-    "jest": "^30.2.0"
+    "eslint": "^10.1.0",
+    "jest": "^30.3.0"
   },
   "jest": {
     "verbose": true,
